@@ -27,7 +27,7 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        day
+        title
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
