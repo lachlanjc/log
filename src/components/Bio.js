@@ -11,8 +11,8 @@ const Bio = () => (
       style={{ flexShrink: 'none' }}
     />
     <Text f={2}>
-      A log post by <strong>Lachlan Campbell</strong> who lives and works in San
-      Francisco building useful things.{' '}
+      A log by <strong>Lachlan Campbell</strong>, a web designer-developer and
+      high schooler.{' '}
       <Link href="https://twitter.com/lachlanjc">Follow them on Twitter</Link>
     </Text>
   </Flex>
