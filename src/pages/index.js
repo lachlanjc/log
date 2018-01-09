@@ -2,9 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-
+import { Box, Heading, Text } from '@hackclub/design-system'
 import Bio from '../components/Bio'
-import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
   render() {
@@ -18,19 +17,12 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+            <Box my={[3, 4]} key={node.fields.slug}>
+              <Heading.h3 f={[4, 5]} mb={2} color="info">
+                <Link to={node.fields.slug}>{title}</Link>
+              </Heading.h3>
+              <Text f={2} dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </Box>
           )
         })}
       </div>
@@ -55,7 +47,6 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
             title
           }
         }
