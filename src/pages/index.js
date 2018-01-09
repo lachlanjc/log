@@ -15,7 +15,7 @@ class BlogIndex extends React.Component {
         <Helmet title={siteTitle} />
         <Bio />
         {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
+          const title = get(node, 'frontmatter.day') || node.fields.slug
           return (
             <Box my={[3, 4]} key={node.fields.slug}>
               <Heading.h3 f={[4, 5]} mb={2} color="info">
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___day], order: DESC }) {
       edges {
         node {
           excerpt
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            title
+            day
           }
         }
       }
