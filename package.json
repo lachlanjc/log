@@ -5,9 +5,9 @@
   "author": "Lachlan Campbell",
   "private": true,
   "dependencies": {
-    "@hackclub/design-system": "^0.0.1-4",
-    "gatsby": "^1.9.150",
-    "gatsby-link": "^1.6.33",
+    "@hackclub/design-system": "^0.0.1-5",
+    "gatsby": "^1.9.157",
+    "gatsby-link": "^1.6.34",
     "gatsby-plugin-feed": "^1.3.15",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-sharp": "^1.6.24",
@@ -17,14 +17,14 @@
     "gatsby-remark-responsive-iframe": "^1.4.16",
     "gatsby-remark-smartypants": "^1.4.10",
     "gatsby-source-filesystem": "^1.5.11",
-    "gatsby-transformer-remark": "^1.7.26",
+    "gatsby-transformer-remark": "^1.7.28",
     "gatsby-transformer-sharp": "^1.6.16",
     "lodash": "^4.17.4",
     "styled-components": "^2.4.0"
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
-    "prettier": "^1.9.2"
+    "prettier": "^1.10.2"
   },
   "homepage": "https://log.lachlanjc.me",
   "keywords": [
