@@ -8,12 +8,14 @@ const Bio = () => (
       alt="Lachlan Campbell"
       size="48px"
       mr={3}
-      style={{ flexShrink: 'none' }}
+      style={{ flexShrink: '0' }}
     />
     <Text f={2}>
       A log by <strong>Lachlan Campbell</strong>, a web designer-developer and
       high schooler.{' '}
-      <Link href="https://twitter.com/lachlanjc">Follow them on Twitter</Link>
+      <Link color="primary" href="https://twitter.com/lachlanjc">
+        Follow them on Twitter
+      </Link>
     </Text>
   </Flex>
 )
