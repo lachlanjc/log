@@ -2,4 +2,4 @@
 day: "2018-01-10"
 ---
 
-* Hack Club team meeting
+* hackclub.com: tons of small design tweaks (like adding a hover effect to Bubbles)

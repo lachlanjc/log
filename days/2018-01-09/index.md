@@ -2,5 +2,6 @@
 day: "2018-01-09"
 ---
 
-* More minor hackclub.com improvements
-* Progress on log site design
+* hackclub.com: design improvements
+* DS: releases 0.0.1-4 with minor fixes
+* made progress on log site design
