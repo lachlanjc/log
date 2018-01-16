@@ -2,7 +2,7 @@
 day: "2018-01-08"
 ---
 
-* Started this log site! (built with Gatsby)
-* Released small fixes on @hackclub/design-system
-* Made assorted design updates to hackclub.com
-* Updated Noodles to Ruby 2.5
+* Started this log site!
+* DS: released small fixes
+* hackclub.com: assorted design updates
+* Noodles: updated to Ruby 2.5

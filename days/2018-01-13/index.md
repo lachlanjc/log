@@ -2,4 +2,4 @@
 day: "2018-01-13"
 ---
 
-Relaxed, spent time with my boyfriend. Code can wait.
+Relaxed, spent time with friends. Too exhausted to code on Fridays anyway.
