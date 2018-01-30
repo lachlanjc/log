@@ -19,7 +19,7 @@ const BlogPostTemplate = props => {
       <Card bg="white" boxShadowSize="md" p={4} mx={[-3, -4]} my={4}>
         <Text f={2} m={0} color="grey" caps>
           {new Date(post.frontmatter.day).toLocaleDateString('en-us', {
-            weekday: 'long',
+            weekday: 'long'
           })}
         </Text>
         <Heading.h1 color="primary" f={5} m={0}>

@@ -24,10 +24,16 @@ class BlogIndex extends React.Component {
           {posts.map(({ node }) => {
             const title = get(node, 'frontmatter.day') || node.fields.slug
             return (
-              <Card px={4} py={3} bg="white" key={node.fields.slug}>
+              <Card
+                px={4}
+                py={3}
+                bg="white"
+                boxShadowSize="sm"
+                key={node.fields.slug}
+              >
                 <Text f={2} m={0} color="grey" caps>
                   {new Date(title).toLocaleDateString('en-us', {
-                    weekday: 'long',
+                    weekday: 'long'
                   })}
                 </Text>
                 <Heading.h3 f={4} my={1} color="info">

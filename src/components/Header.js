@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 const Header = props => (
   <Heading.h1 my={3} f={5} {...props}>
     <Link to="/">
-      <Text.span color="slate" style={{ fontWeight: 200 }}>
+      <Text.span color="slate" style={{ fontWeight: 300 }}>
         @lachlanjc/
       </Text.span>
       <Text.span color="primary" style={{ fontWeight: 800 }}>
