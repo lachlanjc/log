@@ -24,6 +24,7 @@ module.exports = {
               maxWidth: 512
             }
           },
+          'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants'
         ]
       }

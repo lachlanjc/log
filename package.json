@@ -6,17 +6,18 @@
   "private": true,
   "dependencies": {
     "@hackclub/design-system": "^0.0.1-8",
-    "gatsby": "^1.9.175",
-    "gatsby-link": "^1.6.35",
+    "gatsby": "^1.9.184",
+    "gatsby-link": "^1.6.36",
     "gatsby-plugin-react-helmet": "^2.0.4",
     "gatsby-plugin-styled-components": "^2.0.5",
-    "gatsby-remark-images": "^1.5.41",
+    "gatsby-remark-copy-linked-files": "^1.5.26",
+    "gatsby-remark-images": "^1.5.43",
     "gatsby-remark-smartypants": "^1.4.10",
-    "gatsby-source-filesystem": "^1.5.16",
-    "gatsby-transformer-remark": "^1.7.30",
-    "lodash": "^4.17.4",
+    "gatsby-source-filesystem": "^1.5.18",
+    "gatsby-transformer-remark": "^1.7.31",
+    "lodash": "^4.17.5",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.1.4"
+    "styled-components": "^3.1.6"
   },
   "devDependencies": {
     "prettier": "^1.10.2"
