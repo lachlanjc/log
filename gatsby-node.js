@@ -7,7 +7,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
+    const component = path.resolve('./src/templates/day.js')
     resolve(
       graphql(
         `
@@ -28,15 +28,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           console.log(result.errors)
           reject(result.errors)
         }
-
-        // Create blog posts pages.
         _.each(result.data.allMarkdownRemark.edges, edge => {
+          const { slug } = edge.node.fields
           createPage({
-            path: edge.node.fields.slug,
-            component: blogPost,
-            context: {
-              slug: edge.node.fields.slug,
-            },
+            path: slug,
+            component,
+            context: { slug }
           })
         })
       })
@@ -47,12 +44,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === 'MarkdownRemark') {
     const value = createFilePath({ node, getNode })
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
-      value,
+      value
     })
   }
 }
