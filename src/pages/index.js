@@ -22,7 +22,7 @@ export default ({ data: { allMarkdownRemark: { edges } } }) => (
       <Bio />
     </Container>
     <Posts>
-      {edges.map(({ node: { excerpt, frontmatter: { day } } }) => (
+      {edges.map(({ node: { html, frontmatter: { day } } }) => (
         <Card px={4} py={3} bg="white" boxShadowSize="sm" key={day}>
           <Text f={2} m={0} color="grey" caps>
             {getDay(day)}
@@ -30,7 +30,7 @@ export default ({ data: { allMarkdownRemark: { edges } } }) => (
           <Heading.h3 f={4} my={1} color="info">
             <Link to={`/${day}`}>{day}</Link>
           </Heading.h3>
-          <Body f={2} dangerouslySetInnerHTML={{ __html: excerpt }} />
+          <Body f={2} dangerouslySetInnerHTML={{ __html: html }} />
         </Card>
       ))}
     </Posts>
@@ -42,7 +42,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___day], order: DESC }) {
       edges {
         node {
-          excerpt
+          html
           fields {
             slug
           }
