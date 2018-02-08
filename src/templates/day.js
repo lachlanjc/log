@@ -6,41 +6,29 @@ import get from 'lodash/get'
 
 import Header from '../components/Header'
 import Bio from '../components/Bio'
+import Day from '../components/Day'
 import Body from '../components/Body'
 
-const BlogPostTemplate = props => {
-  const post = props.data.markdownRemark
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-
+export default ({ data: { markdownRemark } }) => {
+  const { frontmatter: { day }, html } = markdownRemark
   return (
     <Container maxWidth={36} p={3}>
-      <Helmet title={`${post.frontmatter.day} | ${siteTitle}`} />
+      <Helmet title={`${day} – @lachlanjc`} />
       <Header />
       <Card bg="white" boxShadowSize="md" p={4} mx={[-3, -4]} my={4}>
-        <Text f={2} m={0} color="grey" caps>
-          {new Date(post.frontmatter.day).toLocaleDateString('en-us', {
-            weekday: 'long'
-          })}
-        </Text>
+        <Day children={day} />
         <Heading.h1 color="primary" f={5} m={0}>
-          {post.frontmatter.day}
+          {day}
         </Heading.h1>
-        <Body mt={2} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Body mt={2} dangerouslySetInnerHTML={{ __html: html }} />
       </Card>
       <Bio />
     </Container>
   )
 }
 
-export default BlogPostTemplate
-
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query DayBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html

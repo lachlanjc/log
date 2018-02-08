@@ -8,60 +8,41 @@ import Bio from '../components/Bio'
 import Body from '../components/Body'
 import Posts from '../components/Posts'
 
-class BlogIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
-
-    return (
-      <div>
-        <Helmet title={siteTitle} />
-        <Container maxWidth={36} p={3}>
-          <Header />
-          <Bio />
-        </Container>
-        <Posts>
-          {posts.map(({ node }) => {
-            const title = get(node, 'frontmatter.day') || node.fields.slug
-            return (
-              <Card
-                px={4}
-                py={3}
-                bg="white"
-                boxShadowSize="sm"
-                key={node.fields.slug}
-              >
-                <Text f={2} m={0} color="grey" caps>
-                  {new Date(title).toLocaleDateString('en-us', {
-                    weekday: 'long'
-                  })}
-                </Text>
-                <Heading.h3 f={4} my={1} color="info">
-                  <Link to={node.fields.slug}>{title}</Link>
-                </Heading.h3>
-                <Body f={2} dangerouslySetInnerHTML={{ __html: node.html }} />
-              </Card>
-            )
-          })}
-        </Posts>
-      </div>
-    )
-  }
+const getDay = day => {
+  const dt = new Date(day)
+  dt.setDate(dt.getDate() + 1)
+  return dt.toLocaleDateString('en-us', { weekday: 'long' })
 }
 
-export default BlogIndex
+export default ({ data: { allMarkdownRemark: { edges } } }) => (
+  <div>
+    <Helmet title="@lachlanjc/log" />
+    <Container maxWidth={36} p={3}>
+      <Header />
+      <Bio />
+    </Container>
+    <Posts>
+      {edges.map(({ node: { excerpt, frontmatter: { day } } }) => (
+        <Card px={4} py={3} bg="white" boxShadowSize="sm" key={day}>
+          <Text f={2} m={0} color="grey" caps>
+            {getDay(day)}
+          </Text>
+          <Heading.h3 f={4} my={1} color="info">
+            <Link to={`/${day}`}>{day}</Link>
+          </Heading.h3>
+          <Body f={2} dangerouslySetInnerHTML={{ __html: excerpt }} />
+        </Card>
+      ))}
+    </Posts>
+  </div>
+)
 
 export const pageQuery = graphql`
   query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(sort: { fields: [frontmatter___day], order: DESC }) {
       edges {
         node {
-          html
+          excerpt
           fields {
             slug
           }
